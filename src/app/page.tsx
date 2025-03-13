@@ -25,6 +25,7 @@ import {
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState("login");
@@ -235,9 +236,11 @@ const App: React.FC = () => {
             <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-4">
               <div className="flex items-center gap-3">
                 <Avatar className="w-10 h-10">
-                  <img
+                  <Image
                     src="https://public.readdy.ai/ai/img_res/33fd3411d7bf245273f8b29838b54a47.jpg"
                     alt="AI Avatar"
+                    width={40}
+                    height={40}
                   />
                 </Avatar>
                 <div className="text-white">

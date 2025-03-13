@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Card } from "@/components/ui/card";
 import askAi from "../askAi"
+import Link from "next/link";
+import Image from "next/image";
 import {  
   Popover,
   PopoverContent,
@@ -26,7 +27,7 @@ import {
   faCheckDouble,
   faFaceSmile
 } from "@fortawesome/free-solid-svg-icons";
-import { Content } from "next/font/google";
+
 
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<Array<{id:number,text:string,isAi:boolean,time:string,status:string}>>([]);
@@ -118,18 +119,19 @@ const Chat: React.FC = () => {
     <div className="w-full min-h-[762px] bg-gradient-to-b from-pink-50/10 to-purple-50/10 dark:from-pink-950/10 dark:to-purple-950/10 relative">
       <div className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 px-4 py-3 border-b border-border">
         <div className="flex items-center justify-between">
-          <a
+          <Link
             href="/"
-            data-readdy="true"
             className="text-primary"
           >
             <FontAwesomeIcon icon={faArrowLeft} className="text-lg" />
-          </a>
+          </Link>
           <div className="flex flex-col items-center">
             <Avatar className="h-10 w-10 mb-1">
-              <img
+              <Image
                 src="https://public.readdy.ai/ai/img_res/cd3ca0580beffe9ac96fe9e885c614bc.jpg"
                 alt="Emma"
+                width={40}
+                height={40}
               />
             </Avatar>
             <span className="text-sm font-medium text-foreground">Emma</span>
@@ -153,9 +155,11 @@ const Chat: React.FC = () => {
             >
               {message.isAi && (
                 <Avatar className="h-8 w-8 mr-2 mt-1">
-                  <img
+                  <Image
                     src="https://public.readdy.ai/ai/img_res/f814f61b1b887b5bf24883be563d4aa3.jpg"
                     alt="Emma"
+                    width={32}
+                    height={32}
                   />
                 </Avatar>
               )}
@@ -183,9 +187,11 @@ const Chat: React.FC = () => {
           {isTyping && (
             <div className="flex items-center mb-4">
               <Avatar className="h-8 w-8 mr-2">
-                <img
+                <Image
                   src="https://public.readdy.ai/ai/img_res/f33126d2f9dfaf35e5014589fd079fa7.jpg"
                   alt="Emma"
+                  width={32}
+                  height={32}
                 />
               </Avatar>
               <div className="bg-card px-4 py-2 rounded-2xl">
@@ -252,10 +258,10 @@ const Chat: React.FC = () => {
 
       <div className="fixed bottom-0 w-full bg-background border-t border-border px-4 py-2 bottom-nav">
         <div className="grid grid-cols-4 gap-4">
-          <a href="/" data-readdy="true" className="flex flex-col items-center">
+          <Link href="/" className="flex flex-col items-center">
             <FontAwesomeIcon icon={faHouse} className="text-muted-foreground" />
             <span className="text-xs mt-1 text-muted-foreground">Home</span>
-          </a>
+          </Link>
           <button className="flex flex-col items-center">
             <FontAwesomeIcon icon={faComment} className="text-primary" />
             <span className="text-xs mt-1 text-primary">Chat</span>
